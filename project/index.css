@@ -1,0 +1,22 @@
+.input {
+      padding: 10px;
+    }
+    
+    .message {
+      height: 25px;
+      color: red;
+    }
+    
+    .center {
+      text-align: center;
+    }
+    
+    canvas {
+      background-color: white;
+    }
+    
+    body {
+      margin: 0px;
+      padding: 0px;
+      background-color: white;
+    }
