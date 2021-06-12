@@ -1,7 +1,7 @@
 <?php 
   session_start();
 
-  if (!isset($_SESSION['userID'])) {
+  if (!isset($_SESSION['CID'])) {
     echo '<script type="text/javascript">window.location="index.php";</script>';
   }
   $title = ucwords(str_replace('_', ' ', str_replace('-', ' ', basename($_SERVER['SCRIPT_FILENAME'], '.php'))));
