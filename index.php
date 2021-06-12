@@ -6,12 +6,7 @@
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
 
-    $conn = new mysqli("localhost", "root", "", "amir");
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+    include 'conn/conn.php';
 
     $sql = "SELECT * FROM users where email = '$email' and password = '$password'";
     $result = $conn->query($sql);
@@ -26,7 +21,7 @@
 <!DOCTYPE html>
   <html lang="en">
   <head>
-    <title>Customer Login</title>
+    <title>Admin Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -36,7 +31,7 @@
   <body>
 
   <div class="container" style="padding: 10% 30%;">
-    <h2>Login Form</h2>
+    <h2>Admin Login</h2>
     <?php echo $error; ?>
     <form method="post">
       <div class="form-group">
