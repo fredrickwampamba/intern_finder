@@ -2,12 +2,12 @@
 
 if (!empty($_REQUEST['app'])) {
     $appID = $_REQUEST['app'];
-    $directory = "files/".$appID."/";
+    $directory = "files/applications/".$appID."/";
     if (!file_exists($directory)) {
         mkdir($directory);
         chmod($directory, 0755);
     }
-    
+
     $dir = $directory;
     $zip_file = $appID.".zip";
 
