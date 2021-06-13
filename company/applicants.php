@@ -34,6 +34,7 @@
                 <th scope="col">Address</th>
                 <th scope="col">University</th>
                 <th scope="col">Docs</th>
+                <th scope="col">Download Documents</th>
                 <th scope="col">Submitted Date</th>
                 <th scope="col">Action</th>
               </tr>
@@ -56,6 +57,7 @@
                 <td><?php echo $row['S_address']; ?></td>
                 <td><?php echo $row['university_name']; ?></td>
                 <td><?php echo $row['doc_count']; ?></td>
+                <td><a href="docs.php?app=<?php echo $row['appID']; ?>" target="about:blank">Download</a></td>
                 <td><?php echo $row['submitteddate']; ?></td>
                 <td><a href="email.php?app=<?php echo $row['appID']; ?>&post=<?php echo $_REQUEST['po']; ?>" title="Send Email">Email</a>&nbsp;<a href="?del=<?php echo $row['appID']; ?>" title="Delete">Delete</a></td>
               </tr>
