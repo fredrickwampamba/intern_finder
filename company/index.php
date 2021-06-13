@@ -11,7 +11,7 @@
     $sql = "SELECT * FROM company where email = '$email' and password = '$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-      $_SESSION['CID'] = $email;
+      $_SESSION['CID'] = $result->fetch_assoc()['CID'];
       header('Location:dashboard.php');
     }else{
       $error = "<div class='text-danger'>Your login Details are Invalid</div>";
@@ -21,7 +21,7 @@
 <!DOCTYPE html>
   <html lang="en">
   <head>
-    <title>Admin Login</title>
+    <title>Company Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,7 +31,7 @@
   <body>
 
   <div class="container" style="padding: 10% 30%;">
-    <h2>Admin Login</h2>
+    <h2>Company Login</h2>
     <?php echo $error; ?>
     <form method="post">
       <div class="form-group">
