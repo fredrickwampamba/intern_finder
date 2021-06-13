@@ -40,7 +40,7 @@
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['location']; ?></td>
                 <td><?php echo $row['submitteddate']; ?></td>
-                <td><a href="university-edit.php?uni=<?php echo $row['UID']; ?>" title="Delete">Update</a>&nbsp;<a href="?del=<?php echo $row['UID']; ?>" title="Delete">Delete</a></td>
+                <td><a href="university-edit.php?uni=<?php echo $row['UID']; ?>" title="Update">Update</a>&nbsp;<a href="?del=<?php echo $row['UID']; ?>" title="Delete">Delete</a></td>
               </tr>
               <?php
                   $i++;
