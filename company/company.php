@@ -14,17 +14,18 @@
 
       /*file upload*/
       if (file_exists($_FILES['logo']['tmp_name']) || is_uploaded_file($_FILES['logo']['tmp_name'])) {
+        $oldFileName = $conn->query("SELECT * FROM company WHERE CID = '$CID' LIMIT 1")->fetch_assoc()['logo']; // getting old photo
         $filetmp = $_FILES["logo"]["tmp_name"];
         $filename = $_FILES["logo"]["name"];
         $extension = end((explode(".", $filename)));
-        $target_file = "logos/" . md5(date('R')).".".$extension;
+        $target_file = "files/logos/" . md5(date('R')).".".$extension;
         if (move_uploaded_file($filetmp, $target_file)) {
-          unlink($conn->query("SELECT * FROM company WHERE CID = '$CID' LIMIT 1")->fetch_assoc()['logo']); // deleting old photo
 
           $sql = $conn->query("UPDATE company SET logo = '$target_file' WHERE CID = '$CID'");
-          # code...
-        echo "string";
+          
         }
+
+        unlink($oldFileName);
 
       }
 
@@ -47,6 +48,7 @@
      ?>
 
       <div class="col-md-9">
+        <center><img src="<?php echo $co_info['logo'] ?>" style="border-radius: 100%; width: 100px; margin-bottom: 20px;"></center>
         <form method="POST" enctype="multipart/form-data">
           <div class="text-center col-md-12"><?php echo $error; ?></div>
             <div class="form-group">
@@ -68,7 +70,7 @@
 
             <div class="form-group">
               <label for="pwd">Company Logo:</label>
-              <input type="file" class="form-control" name="logo" required="" accept="image/*">
+              <input type="file" class="form-control" name="logo" accept="image/*">
             </div>
 
             <div class="form-group col-md-6 pt-4">

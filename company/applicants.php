@@ -57,7 +57,7 @@
                 <td><?php echo $row['university_name']; ?></td>
                 <td><?php echo $row['doc_count']; ?></td>
                 <td><?php echo $row['submitteddate']; ?></td>
-                <td><a href="email.php?app=<?php echo $row['appID']; ?>" title="Send Email">Email</a>&nbsp;<a href="?del=<?php echo $row['appID']; ?>" title="Delete">Delete</a></td>
+                <td><a href="email.php?app=<?php echo $row['appID']; ?>&post=<?php echo $_REQUEST['po']; ?>" title="Send Email">Email</a>&nbsp;<a href="?del=<?php echo $row['appID']; ?>" title="Delete">Delete</a></td>
               </tr>
               <?php
                   $i++;
