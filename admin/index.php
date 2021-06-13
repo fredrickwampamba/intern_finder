@@ -1,6 +1,12 @@
 <?php 
   error_reporting(0);
   session_start();
+
+  if (isset($_SESSION['userID'])) {
+    echo '<script type="text/javascript">window.location="dashboard.php";</script>';
+  }
+
+
   if (isset($_REQUEST['submit'])) {
     
     $email = $_REQUEST['email'];
@@ -43,6 +49,7 @@
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required="">
       </div>
       <button type="submit" name="submit" class="btn btn-success">Login</button>
+      <span class="text-right"><a href="reset.php">Forgot Password?</a></span>
     </form>
   </div>
 
