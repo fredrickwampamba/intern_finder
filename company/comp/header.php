@@ -23,26 +23,20 @@
   <div class="container">
     
     <div class="col-md-12 row">
-      <h2 class="pl-10 text-center"><?php echo $title; ?> - Admin Panel</h2>
+      <h2 class="pl-10 text-center"><?php echo $title; ?> - Company Panel</h2>
       <div class="col-md-3">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link active" href="dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add-university.php">Add University</a>
+            <a class="nav-link" href="add-post.php">Add Internship Posts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="university.php">View University</a>
+            <a class="nav-link" href="posts.php">View Internship Posts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add-company.php">Add Company</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="companies.php">View Company</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="users.php">Users</a>
+            <a class="nav-link" href="company.php">Company</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
