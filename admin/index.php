@@ -11,7 +11,7 @@
     $sql = "SELECT * FROM users where email = '$email' and password = '$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-      $_SESSION['userID'] = $email;
+      $_SESSION['userID'] = $result->fetch_assoc()['userID'];
       header('Location:dashboard.php');
     }else{
       $error = "<div class='text-danger'>Your login Details are Invalid</div>";
