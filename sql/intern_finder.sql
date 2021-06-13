@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2021 at 07:27 PM
+-- Generation Time: Jun 13, 2021 at 12:15 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -25,6 +25,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `applicants`
+--
+
+CREATE TABLE `applicants` (
+  `id` int(11) NOT NULL,
+  `appID` varchar(30) NOT NULL,
+  `postID` varchar(30) NOT NULL,
+  `S_name` varchar(100) NOT NULL,
+  `S_email` varchar(100) NOT NULL,
+  `S_address` varchar(100) NOT NULL,
+  `S_phone` varchar(15) NOT NULL,
+  `S_university` varchar(20) NOT NULL,
+  `submitteddate` varchar(30) NOT NULL,
+  `updated` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `applicants`
+--
+
+INSERT INTO `applicants` (`id`, `appID`, `postID`, `S_name`, `S_email`, `S_address`, `S_phone`, `S_university`, `submitteddate`, `updated`) VALUES
+(1, 'JGHJ8766', 'KYA4221', 'Fredrick Wampamba', 'fredowampz@gmail.com', 'kyanja Village', '0702718025', 'KYA5260', '2021-06-13', '0000-00-00 00:00:00.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `app_docs`
+--
+
+CREATE TABLE `app_docs` (
+  `id` int(11) NOT NULL,
+  `appID` varchar(30) NOT NULL,
+  `doc_link` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `app_docs`
+--
+
+INSERT INTO `app_docs` (`id`, `appID`, `doc_link`) VALUES
+(1, 'JGHJ8766', 'http://www.kmsauto.info/file/KMSAuto-Net.zip'),
+(2, 'JGHJ8766', 'http://www.kmsauto.info/file/KMSAuto-Net.zip'),
+(3, 'JGHJ8766', 'http://www.kmsauto.info/file/KMSAuto-Net.zip');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `company`
 --
 
@@ -36,6 +83,7 @@ CREATE TABLE `company` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `phone` varchar(15) NOT NULL,
+  `logo` text NOT NULL,
   `submitteddate` varchar(30) NOT NULL,
   `updated` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `deleted` int(11) NOT NULL DEFAULT '0',
@@ -46,16 +94,57 @@ CREATE TABLE `company` (
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`id`, `CID`, `name`, `location`, `email`, `password`, `phone`, `submitteddate`, `updated`, `deleted`, `deleteddate`) VALUES
-(4, 'KYA7215', 'Kyambogo University', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'owtRBPzv', '0702718025', '2021-06-12', '2021-06-12 16:27:46.682970', 0, ''),
-(5, 'MAK4336', 'makerere University', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'D8569vdM', '0702718025', '2021-06-12', '2021-06-12 16:34:35.310888', 0, ''),
-(6, 'ISI8392', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'sfredowampz@gmail.com', 'G3vn4MwV', '0702718025', '2021-06-12', '2021-06-12 16:34:51.522957', 0, ''),
-(7, 'ISI6959', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'NYKxa0Zz', '0702718025', '2021-06-12', '2021-06-12 16:35:05.849270', 0, ''),
-(8, 'ISI1075', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'lecD1wr9', '0702718025', '2021-06-12', '2021-06-12 16:35:07.053990', 0, ''),
-(9, 'ISI5466', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', '0htRFnk8', '0702718025', '2021-06-12', '2021-06-12 16:35:08.072640', 1, '2021-06-12'),
-(10, 'ISI7647', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', '1QhiZGC8', '0702718025', '2021-06-12', '2021-06-12 16:35:08.772666', 0, ''),
-(11, 'ISI5802', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'zbYwXfA2', '0702718025', '2021-06-12', '2021-06-12 16:35:09.603920', 1, '2021-06-12'),
-(12, 'ISI7060', 'ISI+SOFT TECHNOLOGIES LIMITED', 'Kampala Ugandaa', 'fredowampz@gmail.com', 'TwpfKP7F', '0702718025', '2021-06-12', '2021-06-12 16:35:11.602025', 1, '2021-06-12');
+INSERT INTO `company` (`id`, `CID`, `name`, `location`, `email`, `password`, `phone`, `logo`, `submitteddate`, `updated`, `deleted`, `deleteddate`) VALUES
+(4, 'KYA7215', 'Kyambogo University', 'Kampala Ugandas', 'fredowampz@gmail.com', '6ZCWvo2j', '0702718025', 'logos/e1e1d3d40573127e9ee0480caf1283d6.jpg', '2021-06-12', '2021-06-12 16:27:46.682970', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `postID` varchar(30) NOT NULL,
+  `name` varchar(300) NOT NULL,
+  `CID` varchar(30) NOT NULL,
+  `start` varchar(15) NOT NULL,
+  `end` varchar(15) NOT NULL,
+  `applied` int(11) NOT NULL,
+  `ac_years` varchar(50) NOT NULL,
+  `docs` varchar(300) NOT NULL,
+  `applicants` int(11) NOT NULL,
+  `intern_type` varchar(50) NOT NULL,
+  `certification` varchar(10) NOT NULL,
+  `submitteddate` varchar(30) NOT NULL,
+  `updated` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `deleted` varchar(5) NOT NULL,
+  `deleteddate` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `postID`, `name`, `CID`, `start`, `end`, `applied`, `ac_years`, `docs`, `applicants`, `intern_type`, `certification`, `submitteddate`, `updated`, `deleted`, `deleteddate`) VALUES
+(3, 'KYA4569', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:40:45.246376', '1', '2021-06-12'),
+(4, 'KYA9056', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:02.428110', '1', '2021-06-12'),
+(5, 'KYA1363', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:03.192008', '1', '2021-06-12'),
+(6, 'KYA7963', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:03.975588', '', ''),
+(7, 'KYA5691', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:06.414852', '', ''),
+(8, 'KYA4221', 'Internship as Web Developer', 'KYA7215', '2021-06-13', '2021-07-09', 0, 'Any', 'UACE,Previous perfomance / results', 40, 'Pay to intern', 'Yes', '2021-06-12', '2021-06-12 18:41:07.339512', '', ''),
+(9, 'KYA3077', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:08.153471', '', ''),
+(10, 'KYA8367', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:08.915346', '', ''),
+(11, 'KYA9499', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:09.736239', '', ''),
+(12, 'KYA8193', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:10.483462', '', ''),
+(13, 'KYA4309', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:11.275658', '', ''),
+(14, 'KYA1401', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:12.005671', '', ''),
+(15, 'KYA8127', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:12.807136', '', ''),
+(16, 'KYA5028', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:13.442702', '', ''),
+(17, 'KYA7590', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:14.140098', '', ''),
+(18, 'KYA4423', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:14.876655', '', ''),
+(19, 'KYA8279', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:15.620046', '', ''),
+(20, 'KYA9018', 'Kyambogo University', 'KYA7215', '2021-06-12', '2021-07-09', 0, 'Year II or greater', 'UCE,UACE,Circulum Vitae', 16, 'Free', 'No', '2021-06-12', '2021-06-12 18:41:16.820411', '', '');
 
 -- --------------------------------------------------------
 
@@ -109,18 +198,40 @@ INSERT INTO `users` (`id`, `userID`, `email`, `password`, `username`) VALUES
 --
 
 --
+-- Indexes for table `applicants`
+--
+ALTER TABLE `applicants`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `appID` (`appID`);
+
+--
+-- Indexes for table `app_docs`
+--
+ALTER TABLE `app_docs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `CID` (`CID`);
+  ADD UNIQUE KEY `CID` (`CID`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `postID` (`postID`);
 
 --
 -- Indexes for table `university`
 --
 ALTER TABLE `university`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UID` (`UID`);
+  ADD UNIQUE KEY `UID` (`UID`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `users`
@@ -135,10 +246,25 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `applicants`
+--
+ALTER TABLE `applicants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `app_docs`
+--
+ALTER TABLE `app_docs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `university`
 --
