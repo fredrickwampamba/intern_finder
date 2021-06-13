@@ -42,7 +42,7 @@
                 <td><?php echo $row['phone']; ?></td>
                 <td><?php echo $row['location']; ?></td>
                 <td><?php echo $row['submitteddate']; ?></td>
-                <td><a href="company-edit.php?co=<?php echo $row['CID']; ?>" title="Delete">Update</a>&nbsp;<a href="?del=<?php echo $row['CID']; ?>" title="Delete">Delete</a></td>
+                <td><a href="company-edit.php?co=<?php echo $row['CID']; ?>" title="Update">Update</a>&nbsp;<a href="?del=<?php echo $row['CID']; ?>" title="Delete">Delete</a></td>
               </tr>
               <?php
                   $i++;
