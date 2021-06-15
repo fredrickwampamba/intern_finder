@@ -6,9 +6,9 @@ comapny
 
 Dont forget to write the api in teh company folder for the Adnroid appplication
 Api for android application features
-        fetching all the posts
-        Applying to posts
-        listing all universities
-        listing all companies
-        making a url get with company ID to return company information and posts
+        fetching all the posts ------------------ Done
+        Applying to posts ----------------------- Remaining
+        listing all universities ---------------- Done
+        listing all companies ------------------- Done
+        making a url get with company ID to return company information and posts --------Done
         That is all
