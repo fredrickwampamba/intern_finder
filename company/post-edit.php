@@ -11,13 +11,14 @@
       $applicants = $_REQUEST['applicants'];
       $intern_type = $_REQUEST['intern_type'];
       $certification = $_REQUEST['certification'];
+      $description = addslashes($_REQUEST['description']);
       $CID = $_SESSION['CID'];
       $submitteddate = date("Y-m-d");
       $postID = $_REQUEST['po'];
 
       include 'conn/conn.php';
 
-      $sql = "UPDATE posts SET docs = '$docs', start = '$start', `end` = '$end', name = '$name', ac_years = '$ac_years', applicants = '$applicants', intern_type = '$intern_type', certification = '$certification' WHERE postID = '$postID'";
+      $sql = "UPDATE posts SET description = '$description', docs = '$docs', start = '$start', `end` = '$end', name = '$name', ac_years = '$ac_years', applicants = '$applicants', intern_type = '$intern_type', certification = '$certification' WHERE postID = '$postID'";
       if ($conn->query($sql)) {
 
         $error = "<div class='bg-success text-white'>Data Updated successfully</div>";
@@ -102,6 +103,11 @@
                 <option value="Yes">Yes</option>
                 <option value="<?php echo $po_info['certification']; ?>" selected><?php echo $po_info['certification']; ?></option>
               </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Description:</label>
+              <textarea name="description" required class="form-control" rows="5" placeholder="Enter description here"><?php echo $po_info['description']; ?></textarea>
             </div>
 
             <div class="form-group col-md-6 pt-4">

@@ -4,6 +4,7 @@
     if (isset($_REQUEST['add-post'])) {
       
       $docs = implode(',', $_REQUEST['docs']);
+      $description = addslashes($_REQUEST['description']);
       $start = $_REQUEST['start'];
       $end = $_REQUEST['end'];
       $name = $_REQUEST['name'];
@@ -17,7 +18,7 @@
 
       include 'conn/conn.php';
 
-      $sql = "INSERT INTO `posts`(`postID`, `docs`, `name`, `CID`, `start`, `end`, `ac_years`, `applicants`, `intern_type`, `certification`, `submitteddate`) VALUES ('$postID','$docs','$name','$CID','$start','$end','$ac_years','$applicants','$intern_type','$certification','$submitteddate')";
+      $sql = "INSERT INTO `posts`(`postID`, `description`, `docs`, `name`, `CID`, `start`, `end`, `ac_years`, `applicants`, `intern_type`, `certification`, `submitteddate`) VALUES ('$postID','$description','$docs','$name','$CID','$start','$end','$ac_years','$applicants','$intern_type','$certification','$submitteddate')";
       if ($conn->query($sql)) {
 
         $error = "<div class='bg-success text-white'>Data Saved successfully</div>";
@@ -88,6 +89,11 @@
                 <option value="No">No</option>
                 <option value="Yes">Yes</option>
               </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pwd">Description:</label>
+              <textarea name="description" required class="form-control" rows="5" placeholder="Enter description here"></textarea>
             </div>
 
             <div class="form-group col-md-6 pt-4">
