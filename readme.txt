@@ -1,6 +1,8 @@
 all applicant files or documents are to be uploaded to the server to the
 
-comapny
+Please add a button for emailing the university incase the applicant has been taken in         ------------------ Unfinished
+
+company
         files
                 applications
 
