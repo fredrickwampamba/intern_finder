@@ -12,3 +12,16 @@ Api for android application features
         listing all companies ------------------- Done
         making a url get with company ID to return company information and posts --------Done
         That is all
+
+Android Application
+	Minimum SDK (4.4.2 Kitkat)
+	Volley library usage and material card view
+	Toasts or snack bars to be used for notification
+
+		Splash screen (Simple implementation)
+		mainActivity for buttons to access the other menus
+			Menus
+				Companies
+				Universities
+				Posts
+				Exiting the application
