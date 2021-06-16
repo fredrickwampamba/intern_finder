@@ -44,7 +44,7 @@
 			
 			echo json_encode(array("company"=>$company, "response"=>true, "posts"=>$posts_array));
 		}else{
-			echo json_encode(array("response"=>false, "message"=>"Empty Post"));
+			echo json_encode(array("response"=>false, "message"=>"Empty Company"));
 		}
 
 	}else{
