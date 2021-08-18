@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/border"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:id="@+id/companyImage"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="icon"
+            android:src="@drawable/ic_launcher_background"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:id="@+id/relative"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/post_name"
+                    android:text="Software Internship"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company Uganda Limited"
+                    android:paddingTop="3dp"
+                    android:layout_below="@id/post_name"
+                    android:id="@+id/companyName"
+                    android:layout_alignParentStart="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/applicants"
+                    android:layout_alignParentEnd="true"
+                    android:text="12 applicants"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/companyName"
+                    android:orientation="horizontal"
+                    android:id="@+id/companyinformation"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/companyEmail"
+                        android:layout_height="wrap_content"
+                        android:text="someone@company.com"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="07034738744"
+                        android:id="@+id/companyTel"
+                        android:layout_alignParentEnd="true"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/companyinformation"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/dateRange"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"
+                        android:text="2021-12-03 to 2021-29-04"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/entryDate"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"
+                        android:text="Entry Date: 2021-19-03"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/dateRange"
+                        android:id="@+id/certification"
+                        android:paddingTop="3dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"
+                        android:text="Certification: Yes"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/entryDate"
+                        android:id="@+id/intern_type"
+                        android:paddingTop="3dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"
+                        android:text="Paid: Free"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/certification"
+                        android:paddingTop="3dp"
+                        android:id="@+id/location"
+                        android:layout_alignParentStart="true"
+                        android:layout_height="wrap_content"
+                        android:text="Location: Kyambogo"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/intern_type"
+                        android:paddingTop="3dp"
+                        android:id="@+id/ac_years"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="wrap_content"
+                        android:text="Accept Only: Year II"
+                        />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:id="@+id/accepted_docs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative"
+                android:text="UCE, UACE, CV, Introduction lettter, previous Results"/>
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/accepted_docs"
+                android:text="Sample Description"/>
+
+            <Button
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:layout_width="wrap_content"
+                android:id="@+id/apply"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/description"
+                android:text="apply"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
