@@ -64,7 +64,7 @@
           uncomment the mail line to permit emailing to happen*/
           $headers[] = 'From: Intern Masters <no-reply@bdt.net>';
 
-          mail($to, $subject, $html, implode("\r\n", $headers));
+          mail($email, $subject, $html, implode("\r\n", $headers));
 
         	$error = "<div class='bg-success text-white'>Application Recieved</div>";
 		}else{
