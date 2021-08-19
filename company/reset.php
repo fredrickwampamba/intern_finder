@@ -33,7 +33,7 @@
             </head>
             <body>
               <h3>Password Reset</h3>
-              <p>New password".$generated_password."</p>
+              <p>New password ".$generated_password."</p>
             </body>
             </html>
             ";
