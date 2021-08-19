@@ -42,16 +42,16 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         PostsClass postsClass = postsClasses.get(position);
         holder.dateRange.setText(postsClass.getStartDate()+" to "+postsClass.getEndDate());
         holder.post_name.setText(postsClass.getPost_name());
-        holder.company_name.setText(postsClass.getCompany_name());
-        holder.email.setText(postsClass.getEmail());
-        holder.phone.setText(postsClass.getPhone());
-        holder.intern_type.setText(postsClass.getIntern_type());
-        holder.certification.setText(postsClass.getCertification());
-        holder.submitteddate.setText(postsClass.getSubmitteddate());
-        holder.location.setText(postsClass.getLocation());
-        holder.ac_years.setText(postsClass.getAc_years());
-        holder.accepted_docs.setText(postsClass.implode());
-        holder.description.setText(postsClass.getDescription());
+        holder.company_name.setText("Company: "+postsClass.getCompany_name());
+        holder.email.setText("Email: "+postsClass.getEmail());
+        holder.phone.setText("Phone: "+postsClass.getPhone());
+        holder.intern_type.setText("Type: "+postsClass.getIntern_type());
+        holder.certification.setText("Certification: "postsClass.getCertification());
+        holder.submitteddate.setText("Added: "+postsClass.getSubmitteddate());
+        holder.location.setText("Location: "+postsClass.getLocation());
+        holder.ac_years.setText("Only: "+postsClass.getAc_years());
+        holder.accepted_docs.setText("Documents: "+postsClass.implode());
+        holder.description.setText("Description: "+postsClass.getDescription());
         holder.applicants.setText(postsClass.getApplied()+"/"+postsClass.getApplicants());
 
         Glide.with(context).load(postsClass.getCompany_logo()).transform(new CircleCrop()).centerCrop().placeholder(R.drawable.ic_refresh_icon).error(R.drawable.ic_refresh_icon).into(holder.company_logo);
@@ -59,7 +59,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"postID: "+postsClass.getPostID(),Toast.LENGTH_LONG).show();
+                Uri uri = Uri.parse("http://app.sallytraders.com/apply.php?postID="+postsClass.getPostID()); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
     }
