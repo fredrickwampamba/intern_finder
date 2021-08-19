@@ -14,7 +14,7 @@
 			unset($post['deleted']); //removing the deleted from the rows array
 			unset($post['password']); //removing the password from the rows array
 			unset($post['deleteddate']); //removing the deleteddate from the rows array
-			$post['company_logo'] = "https://".$_SERVER['SERVER_NAME']."/company/files/".$post['logo'];
+			$post['company_logo'] = "https://".$_SERVER['SERVER_NAME']."/".$post['logo'];
 				unset($post['logo']); //removing the logo from the rows array
 			unset($post['updated']); //removing the updated from the rows array
 			unset($post['id']); //removing the id from the rows array

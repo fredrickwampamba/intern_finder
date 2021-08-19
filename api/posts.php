@@ -12,7 +12,7 @@
 			unset($rows['deleted']); //removing the deleted from the rows array
 			unset($rows['deleteddate']); //removing the deleteddate from the rows array
 			unset($rows['password']); //removing the password from the rows array
-			$rows['company_logo'] = "https://".$_SERVER['SERVER_NAME']."/company/files/".$rows['logo'];
+			$rows['company_logo'] = "https://".$_SERVER['SERVER_NAME']."/".$rows['logo'];
 			unset($rows['logo']); //removing the logo from the rows array
 			unset($rows['updated']); //removing the updated from the rows array
 			unset($rows['id']); //removing the id from the rows array
