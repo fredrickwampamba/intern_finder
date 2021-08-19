@@ -18,6 +18,7 @@
     if ($result->num_rows > 0) {
       $_SESSION['CID'] = $result->fetch_assoc()['CID'];
       header('Location:dashboard.php');
+      echo '<script type="text/javascript">window.location="dashboard.php";</script>';
     }else{
       $error = "<div class='text-danger'>Your login Details are Invalid</div>";
     }
