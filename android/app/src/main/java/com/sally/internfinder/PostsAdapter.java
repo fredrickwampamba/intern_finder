@@ -1,18 +1,20 @@
-package internfinder.package;
+package com.sally.internfinder;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+//import com.bumptech.glide.Glide;
+//import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public PostsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.single_post, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
@@ -38,7 +40,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PostsClass postsClass = postsClasses.get(position);
         holder.dateRange.setText(postsClass.getStartDate()+" to "+postsClass.getEndDate());
         holder.post_name.setText(postsClass.getPost_name());
@@ -46,22 +48,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.email.setText("Email: "+postsClass.getEmail());
         holder.phone.setText("Phone: "+postsClass.getPhone());
         holder.intern_type.setText("Type: "+postsClass.getIntern_type());
-        holder.certification.setText("Certification: "postsClass.getCertification());
-        holder.submitteddate.setText("Added: "+postsClass.getSubmitteddate());
+        holder.certification.setText("Certification: "+postsClass.getCertification());
         holder.location.setText("Location: "+postsClass.getLocation());
         holder.ac_years.setText("Only: "+postsClass.getAc_years());
         holder.accepted_docs.setText("Documents: "+postsClass.implode());
         holder.description.setText("Description: "+postsClass.getDescription());
         holder.applicants.setText(postsClass.getApplied()+"/"+postsClass.getApplicants());
 
-        Glide.with(context).load(postsClass.getCompany_logo()).transform(new CircleCrop()).centerCrop().placeholder(R.drawable.ic_refresh_icon).error(R.drawable.ic_refresh_icon).into(holder.company_logo);
-
+//        Glide.with(context).load(postsClass.getCompany_logo()).transform(new CircleCrop()).centerCrop().placeholder(R.drawable.ic_refresh_icon).error(R.drawable.ic_refresh_icon).into(holder.company_logo);
+        Picasso.get()
+                .load(postsClass.getCompany_logo())
+                .placeholder(R.drawable.ic_refresh_icon)
+                .error(R.drawable.ic_refresh_icon)
+                .into(holder.company_logo);
         holder.apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("http://app.sallytraders.com/apply.php?postID="+postsClass.getPostID()); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                context.startActivity(intent);
             }
         });
     }
@@ -72,7 +77,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView applicants,apply,dateRange,submitteddate,accepted_docs,description,ac_years,intern_type,certification,location,email,phone,company_name,post_name;
+        private TextView applicants,apply,dateRange,accepted_docs,description,ac_years,intern_type,certification,location,email,phone,company_name,post_name;
         private ImageView company_logo;;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,7 +89,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             phone = itemView.findViewById(R.id.companyTel);
             intern_type = itemView.findViewById(R.id.intern_type);
             certification = itemView.findViewById(R.id.certification);
-            submitteddate = itemView.findViewById(R.id.entryDate);
             location = itemView.findViewById(R.id.location);
             ac_years = itemView.findViewById(R.id.ac_years);
             accepted_docs = itemView.findViewById(R.id.accepted_docs);

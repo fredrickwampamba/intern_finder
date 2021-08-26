@@ -1,4 +1,4 @@
-package internfinder.package;
+package com.sally.internfinder;
 
 import org.junit.Test;
 

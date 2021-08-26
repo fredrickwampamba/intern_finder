@@ -61,22 +61,22 @@
                     android:paddingTop="5dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/companyName"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:id="@+id/companyinformation"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:id="@+id/companyEmail"
-                        android:layout_height="wrap_content"
-                        android:text="someone@company.com"
-                        />
 
                     <TextView
+                        android:id="@+id/companyEmail"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="someone@company.com" />
+
+                    <TextView
+                        android:layout_below="@+id/companyEmail"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="07034738744"
                         android:id="@+id/companyTel"
-                        android:layout_alignParentEnd="true"
                         />
                 </RelativeLayout>
 
@@ -85,23 +85,15 @@
                     android:paddingTop="5dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/companyinformation"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:id="@+id/dateRange"
-                        android:layout_alignParentStart="true"
-                        android:layout_height="wrap_content"
-                        android:text="2021-12-03 to 2021-29-04"
-                        />
 
                     <TextView
+                        android:id="@+id/dateRange"
                         android:layout_width="wrap_content"
-                        android:id="@+id/entryDate"
-                        android:layout_alignParentEnd="true"
                         android:layout_height="wrap_content"
-                        android:text="Entry Date: 2021-19-03"
-                        />
+                        android:layout_alignParentStart="true"
+                        android:text="2021-12-03 to 2021-29-04" />
 
                     <TextView
                         android:layout_width="wrap_content"

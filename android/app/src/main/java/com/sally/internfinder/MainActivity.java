@@ -1,4 +1,4 @@
-package internfinder.package;
+package com.sally.internfinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                                    progressDialog.dismiss();
+                            progressDialog.dismiss();
                             if (!response.getBoolean("response")){
                                 Toast.makeText(MainActivity.this, response.getString("message"), Toast.LENGTH_LONG).show();
                             }else{
